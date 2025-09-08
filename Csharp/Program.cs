@@ -1,18 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace Csharp.Utils;
 
-namespace Csharp
+class Program
 {
-    class Program
-    {
-        public static Logger Log = new Logger(typeof(Program));
+    public static Logger Log = new Logger(nameof(Program));
+    public static Random Random = new Random(69);
 
-        static void Main(string[] args)
+    static void Main(string[] args)
+    {
+        Log.Info("Program started");
+        List<Isik> isikud = [];
+
+        for (int i = 0; i < 5; i++)
         {
-            Functions.Pood();
+            var isik = new Isik();
+            isik.Nimi = Utils.Ask("Sisesta oma nimi: ") ?? "";
+            isik.Perenimi = Utils.Ask("Sisesta oma perekonnanimi: ") ?? "";
+            isikud.Add(isik);
         }
+        Console.WriteLine("");
+        Log.Info($"Kokku on {isikud.Count} isikud");
+        Log.Info($"Sisestatud isikud: {isikud.Select(i => i.Nimi + " " + i.Perenimi).ToCommaSepString()}");
     }
 }

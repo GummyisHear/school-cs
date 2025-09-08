@@ -8,7 +8,7 @@ namespace Csharp
 {
     internal class Functions
     {
-        public static Logger Log = new Logger(typeof(Functions));
+        public static Logger Log = new Logger(nameof(Functions));
 
         public static float Kalkulaator(float arv1, float arv2)
         {
