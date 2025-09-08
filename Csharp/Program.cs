@@ -1,4 +1,7 @@
-﻿namespace Csharp.Utils;
+﻿using Csharp.osa3;
+using Csharp.utils;
+
+namespace Csharp;
 
 class Program
 {
@@ -8,17 +11,58 @@ class Program
     static void Main(string[] args)
     {
         Log.Info("Program started");
-        List<Isik> isikud = [];
+        Console.OutputEncoding = Encoding.UTF8;
+        // #1
+        //FunctionsOsa3.Ruudud();
 
-        for (int i = 0; i < 5; i++)
+        // #2
+        //var analuus = FunctionsOsa3.AnaluusiArve([2.5, 3.5, 4.5, 7.7, 5.1, 3.7935]);
+        //Console.WriteLine($"Summa: {analuus.Item1:F2} Kesk: {analuus.Item2:F2} Korrutis: {analuus.Item3:F2}");
+
+        // #3
+        //var inimesed = new List<Inimene>();
+        //Console.WriteLine("Loo 5 inimesed");
+        //for (int i = 0; i < 5; i++)
+        //{
+        //    var inimene = new Inimene(Utils.Ask("Nimi: "), Utils.AskInt("Vanus: "));
+        //    inimesed.Add(inimene);
+        //}
+        //var stat = FunctionsOsa3.Statistika(inimesed);
+        //Console.WriteLine($"Summa: {stat.Item1:F2} Kesk: {stat.Item2:F2} Vanim: {stat.Item3.Nimi} Noorim: {stat.Item4.Nimi}");
+
+        // #4
+        //FunctionsOsa3.KusiMarksonani("elevant", "Arvake loomi nimi: ");
+
+        // #5
+        //FunctionsOsa3.ArvaArv();
+
+        // #6
+        //Console.WriteLine("Suurim neljarv. Sisesta 4 täisarved: ");
+        //var arved = new List<int>();
+        //for (var i = 0; i < 4; i++)
+        //{
+        //    arved.Add(Utils.AskInt("Arv: "));
+        //}
+        //Console.WriteLine($"Suurim neljarv on {FunctionsOsa3.SuurimNeljarv(arved.ToArray())}");
+
+        // #7
+        //var rida = Utils.AskInt("Kui palju ridad: ");
+        //var veerg = Utils.AskInt("Kui palju veerud: ");
+        //var tabel = FunctionsOsa3.GenereeriKorrutustabel(rida, veerg);
+        //for (var r = 1; r < rida + 1; r++) 
+        //{
+        //    var line = "";
+        //    for (var v = 1; v < veerg + 1; v++)
+        //        line += tabel[r, v].ToString().PadRight(4);
+
+        //    Console.WriteLine(line);
+        //}
+
+        // #8
+        var opilased = new string[]
         {
-            var isik = new Isik();
-            isik.Nimi = Utils.Ask("Sisesta oma nimi: ") ?? "";
-            isik.Perenimi = Utils.Ask("Sisesta oma perekonnanimi: ") ?? "";
-            isikud.Add(isik);
-        }
-        Console.WriteLine("");
-        Log.Info($"Kokku on {isikud.Count} isikud");
-        Log.Info($"Sisestatud isikud: {isikud.Select(i => i.Nimi + " " + i.Perenimi).ToCommaSepString()}");
+            "Artjom", "niKITA", "ROMAN", "Denis", "vova", "Vadim", "Vlad", "ANTON", "ELDAR"
+        };
+        FunctionsOsa3.Opilased(opilased);
     }
 }
