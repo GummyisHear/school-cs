@@ -59,10 +59,36 @@ class Program
         //}
 
         // #8
-        var opilased = new string[]
+        //var opilased = new string[]
+        //{
+        //    "Artjom", "niKITA", "ROMAN", "Denis", "vova", "Vadim", "Vlad", "ANTON", "ELDAR"
+        //};
+        //FunctionsOsa3.Opilased(opilased);
+
+        // #9
+        //int[] arvud = [2, 4, 6, 8, 10, 12];
+        //FunctionsOsa3.ArvudeRuudud(arvud);
+
+        // #10
+        //int[] arvud2 = [5, -3, 0, 8, -1, 4, -7, 2, 0, -5, 6, 9];
+        //FunctionsOsa3.PositiivsedJaNegatiivset(arvud2);
+
+        // #11
+        //int[] arvud3 = new int[15];
+        //for (var i = 0; i < arvud3.Length; i++)
+        //    arvud3[i] = Random.Next(1, 101);
+        //FunctionsOsa3.KeskmisestSuuremad(arvud3);
+
+        // #12
+        //int[] arvud4 = [12, 56, 78, 2, 90, 43, 88, 67];
+        //FunctionsOsa3.KoigeSuuremOtsing(arvud4);
+
+        // #13
+        int[] arvud5 = new int[20];
+        for (var i = 0; i < arvud5.Length; i++)
         {
-            "Artjom", "niKITA", "ROMAN", "Denis", "vova", "Vadim", "Vlad", "ANTON", "ELDAR"
-        };
-        FunctionsOsa3.Opilased(opilased);
+            arvud5[i] = Random.Next(1, 101);
+        }
+        FunctionsOsa3.PaaritudJaPaaritud(arvud5.ToList());
     }
 }

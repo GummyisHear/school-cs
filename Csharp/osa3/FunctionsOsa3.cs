@@ -126,7 +126,137 @@ internal class FunctionsOsa3
             nimi2 = opilaseNimed[i];
             i++;
         } while (nimi2 != "Mati");
-
-
     }
+
+    public static void ArvudeRuudud(int[] arvud)
+    {
+        Console.WriteLine("for tsükkel, arve ruudud:");
+        for (var i = 0; i < arvud.Length; i++)
+        {
+            Console.WriteLine($"{arvud[i]} => {arvud[i] * arvud[i]}");
+        }
+
+        Console.WriteLine("foreach tsükkel, kahekordne väärtused:");
+        foreach (var arv in arvud)
+        {
+            Console.WriteLine($"{arv} => {arv * 2}");
+        }
+
+        Console.WriteLine("while tsükkel, kui palju on arve, mis jaguvad 3-ga:");
+        var count = 0;
+        var j = 0;
+        while (j < arvud.Length)
+        {
+            if (arvud[j] % 3 == 0)
+            {
+                count++;
+                Console.WriteLine($"{arvud[j]} jagub 3-ga");
+            }
+            j++;
+        }
+        Console.WriteLine($"Kokku on {count} arvu, mis jaguvad 3-ga");
+    }
+
+    public static void PositiivsedJaNegatiivset(int[] arvud)
+    {
+        var pos = 0;
+        var neg = 0;
+        var nullid = 0;
+        foreach (var arv in arvud)
+        {
+            if (arv > 0)
+                pos++;
+            else if (arv < 0)
+                neg++;
+            else
+                nullid++;
+        }
+        Console.WriteLine($"Arvude analüüs: {arvud.ToCommaSepString()}");
+        Console.WriteLine($"Positiivsed: {pos}, Negatiivsed: {neg}, Nullid: {nullid}");
+    }
+
+    public static void KeskmisestSuuremad(int[] arvud)
+    {
+        Console.WriteLine($"Arvude analüüs: {arvud.ToCommaSepString()}");
+
+        var avg = arvud.Average();
+        Console.WriteLine($"Keskmine on {avg}");
+
+        foreach (var arv in arvud)
+        {
+            if (arv > avg)
+                Console.WriteLine($"{arv} on keskmisest suurem");
+        }
+
+        Console.WriteLine($"Arved kuni kohtad arvu, mis on väiksem kui 10");
+        var i = 0;
+        var arv2 = 0;
+        do
+        {
+            arv2 = arvud[i];
+            i++;
+            Console.WriteLine(arv2);
+        }
+        while (arv2 > 10 && i < arvud.Length);
+    }
+
+    public static void KoigeSuuremOtsing(int[] arvud)
+    {
+        if (arvud.Length == 0)
+        {
+            Console.WriteLine("Arvude massiiv on tühi");
+            return;
+        }
+
+        var max = arvud[0];
+        var maxIndex = 0;
+        for (var i = 1; i < arvud.Length; i++)
+        {
+            if (arvud[i] > max)
+            {
+                max = arvud[i];
+                maxIndex = i;
+            }
+        }
+
+        Console.WriteLine($"Arvude Analüüs: {arvud.ToCommaSepString()}");
+        Console.WriteLine($"Kõige suurem arv on {max} indeksil {maxIndex}");
+    }
+
+    public static void PaaritudJaPaaritud(List<int> arvud)
+    {
+        Console.WriteLine($"Paari- ja paaritud loendused: {arvud.ToCommaSepString()}");
+        var paarisSumma = 0;
+        for (var i = 0; i < arvud.Count; i++)
+        {
+            if (arvud[i] % 2 == 0)
+                paarisSumma += arvud[i];
+        }
+        Console.WriteLine($"Paaris arvude summa: {paarisSumma}");
+
+        var paarituKesk = 0f;
+        var paarituCount = 0;
+        foreach (var arv in arvud)
+        {
+            if (arv % 2 != 0)
+            {
+                paarituKesk += arv;
+                paarituCount++;
+            }
+        }
+        paarituKesk /= paarituCount;
+        Console.WriteLine($"Paaritud arvude keskmine: {paarituKesk:F2}");
+
+
+        var j = 0;
+        var suuremKui = 0;
+        while (j < arvud.Count)
+        {
+            if (arvud[j] > 50)
+                suuremKui++;
+            j++;
+        }
+
+        Console.WriteLine($"Kokku arvu suurem kui 50: {suuremKui}");
+    }   
 }
