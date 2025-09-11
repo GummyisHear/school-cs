@@ -86,9 +86,8 @@ class Program
         // #13
         int[] arvud5 = new int[20];
         for (var i = 0; i < arvud5.Length; i++)
-        {
             arvud5[i] = Random.Next(1, 101);
-        }
+        
         FunctionsOsa3.PaaritudJaPaaritud(arvud5.ToList());
     }
 }
