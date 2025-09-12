@@ -1,5 +1,8 @@
 ﻿using Csharp.osa3;
+using Csharp.osa4;
+using Csharp.osa5;
 using Csharp.utils;
+using Inimene = Csharp.osa5.Inimene;
 
 namespace Csharp;
 
@@ -12,6 +15,86 @@ class Program
     {
         Log.Info("Program started");
         Console.OutputEncoding = Encoding.UTF8;
+        // 5.Osa Kollektsioonid
+        // #1 Ülesanne
+
+        //Console.WriteLine("Loeme tooted failist.");
+        //Funktsioonid5.LoeTootedFailist(@"..\..\..\osa5\tooted.txt", out var tooted);
+        //Console.WriteLine(tooted.Select(t => $"{t.Nimi} - {t.Kaloorid100g} kcal/100g").ToCommaSepString("\n"));
+
+        //Console.WriteLine("Sisesta oma andmed:");
+        //var inimene = Inimene.LooInimene();
+
+        //Funktsioonid5.ArvutaBMR(inimene, tooted);
+
+        // #2 Ülesanne
+        var maakondid = new Dictionary<string, string>
+        {
+            { "Harjumaa", "Tallinn" },
+            { "Tartumaa", "Tartu" },
+            { "Pärnumaa", "Pärnu" },
+            { "Ida-Virumaa", "Jõhvi" },
+            { "Lääne-Virumaa", "Rakvere" },
+            { "Viljandimaa", "Viljandi" },
+            { "Raplamaa", "Rapla" },
+            { "Jõgevamaa", "Jõgeva" },
+            { "Järvamaa", "Paide" },
+            { "Valgamaa", "Valga" },
+            { "Võrumaa", "Võru" },
+            { "Saaremaa", "Kuressaare" },
+            { "Läänemaa", "Haapsalu" },
+            { "Hiiumaa", "Kärdla" },
+            { "Põlvamaa", "Põlva" }
+        };
+
+        while (true)
+        {
+            Console.WriteLine("1 - Leia maakond");
+            Console.WriteLine("2 - Leia pealinn");
+            Console.WriteLine("3 - Lisa andmed");
+            Console.WriteLine("4 - Mängurežiim");
+            Console.WriteLine("0 - Välju");
+            var choice = Utils.AskInt("Valik: ", min: 0, max: 4);
+
+            switch (choice)
+            {
+                case 1:
+                    var maakond = Utils.Ask("Sisesta pealinn: ");
+                    var found = maakondid.FirstOrDefault(m => m.Value.Equals(maakond, StringComparison.OrdinalIgnoreCase));
+                    if (!string.IsNullOrEmpty(found.Key))
+                        Console.WriteLine($"{maakond} on {found.Key} pealinn.");
+                    else
+                        Console.WriteLine($"Pealinna '{maakond}' ei leitud.");
+                    break;
+                case 2:
+
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+            }
+
+            if (choice == 0)
+            {
+                Console.Clear();
+                Console.WriteLine("Väljun...");
+                break;
+            }
+
+            Console.Clear();
+        }
+
+        // 4.Osa Failid
+        //var path = @"..\..\..\Kuud.txt";
+        //var lines = Failid.LoeFail(path);
+        //Log.Info(lines.ToCommaSepString());
+
+        //if (lines.Count > 0)
+        //    lines[0] = "Juuli";
+
+        //Failid.KirjutaFail(path, string.Join(Environment.NewLine, lines));
+
         // #1
         //FunctionsOsa3.Ruudud();
 
@@ -41,7 +124,7 @@ class Program
         //var arved = new List<int>();
         //for (var i = 0; i < 4; i++)
         //{
-        //    arved.Add(Utils.AskInt("Arv: "));
+        //    arved.Add(Utils.AskInt("Arv: ", 1));
         //}
         //Console.WriteLine($"Suurim neljarv on {FunctionsOsa3.SuurimNeljarv(arved.ToArray())}");
 
@@ -49,14 +132,15 @@ class Program
         //var rida = Utils.AskInt("Kui palju ridad: ");
         //var veerg = Utils.AskInt("Kui palju veerud: ");
         //var tabel = FunctionsOsa3.GenereeriKorrutustabel(rida, veerg);
-        //for (var r = 1; r < rida + 1; r++) 
+        //for (var r = 1; r < rida + 1; r++)
         //{
         //    var line = "";
         //    for (var v = 1; v < veerg + 1; v++)
-        //        line += tabel[r, v].ToString().PadRight(4);
+        //        line += tabel[r, v].ToString().PadRight(5);
 
         //    Console.WriteLine(line);
         //}
+
 
         // #8
         //var opilased = new string[]
@@ -84,10 +168,10 @@ class Program
         //FunctionsOsa3.KoigeSuuremOtsing(arvud4);
 
         // #13
-        int[] arvud5 = new int[20];
-        for (var i = 0; i < arvud5.Length; i++)
-            arvud5[i] = Random.Next(1, 101);
-        
-        FunctionsOsa3.PaaritudJaPaaritud(arvud5.ToList());
+        //int[] arvud5 = new int[20];
+        //for (var i = 0; i < arvud5.Length; i++)
+        //    arvud5[i] = Random.Next(1, 101);
+
+        //FunctionsOsa3.PaaritudJaPaaritud(arvud5.ToList());
     }
 }
