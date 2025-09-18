@@ -1,0 +1,4 @@
+﻿õun,52.1
+burger,294.9
+pitsa,266
+helbed,395
